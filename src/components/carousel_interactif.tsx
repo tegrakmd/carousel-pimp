@@ -100,17 +100,17 @@ export default function Carousel() {
           />
         </AnimatePresence>
         <div className="absolute z-20 bottom-[10%] md:bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference">
-          <h1 className="font-normal text-center text-xl md:text-4xl uppercase font-pixel-circle -tracking-[0.07em] ">tegra studio  kmd</h1>
+          <h1 className="font-normal text-center text-xl md:text-4xl uppercase font-pixel-circle -tracking-[0.06em] ">tegra studio  kmd</h1>
         </div>
       </div>
 
       {/* Conteneur global du carrousel de navigation */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-full max-w-[97.5vw] md:max-w-max flex justify-center z-10">
+      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-full max-w-[95vw] md:max-w-max flex justify-center z-10">
         
         {/* Track / Container principal */}
         <div 
           ref={trackRef}
-          className="relative flex items-center gap-3 p-2 rounded-[12px] bg-black/15 backdrop-blur-xl border border-white/5 overflow-x-auto no-scrollbar snap-x snap-mandatory"
+          className="relative flex items-center gap-3 p-1.5 rounded-[12px] bg-black/15 backdrop-blur-xl border border-white/5 overflow-x-auto no-scrollbar snap-x snap-mandatory"
         >
           {mediaItems.map((item, index) => {
             const isActive = item.id === activeId;
