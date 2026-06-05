@@ -10,6 +10,7 @@ interface MediaItem {
 }
 
 // 2. Les données (Images style Natalia Blauth / Aventure)
+// https://i.pinimg.com/1200x/6e/ac/7b/6eac7b031b124f642620e6d34480ed6e.jpg
 const mediaItems: MediaItem[] = [
   { id: 1, src: "https://i.pinimg.com/1200x/e7/07/b0/e707b01cd08fd9c3e90680181351db13.jpg", alt: "Cycliste sur chemin forestier" },
   { id: 2, src: "https://i.pinimg.com/1200x/a3/32/26/a33226616eb007fb63bc50e98e56d1b4.jpg", alt: "Grandes montagnes et brume" },
@@ -18,7 +19,8 @@ const mediaItems: MediaItem[] = [
   { id: 5, src: "https://i.pinimg.com/1200x/d4/e4/52/d4e452c2740ad8abf4e2b890a4ff0ce5.jpg", alt: "Fleur bleue en gros plan" },
   { id: 6, src: "https://i.pinimg.com/1200x/48/d5/68/48d56897cca222fe37b411e17b82f625.jpg", alt: "Voiture de sport classique" },
   { id: 7, src: "https://i.pinimg.com/1200x/fa/bf/26/fabf26d94646ced131ce0d39f3824bc1.jpg", alt: "Détails mécaniques et techniques" },
-  { id: 8, src: "https://i.pinimg.com/1200x/fb/47/b5/fb47b5e13d945e43e8d026d9a7480501.jpg", alt: "Coureur de trail en montagne" }
+  { id: 8, src: "https://i.pinimg.com/1200x/fb/47/b5/fb47b5e13d945e43e8d026d9a7480501.jpg", alt: "Coureur de trail en montagne" },
+  { id: 9, src: "https://i.pinimg.com/1200x/89/9d/f8/899df869a89a8b7ce03a8cd592ff1a90.jpg", alt: "Coureur de trail en montagne" }
 ];
 
 export default function Carousel() {
@@ -98,17 +100,17 @@ export default function Carousel() {
           />
         </AnimatePresence>
         <div className="absolute z-20 bottom-[10%] md:bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference">
-          <h1 className="font-normal text-center text-xl md:text-4xl uppercase font-pixel-circle -tracking-tightest ">tegra studio  kmd</h1>
+          <h1 className="font-normal text-center text-xl md:text-4xl uppercase font-pixel-circle -tracking-[0.07em] ">tegra studio  kmd</h1>
         </div>
       </div>
 
       {/* Conteneur global du carrousel de navigation */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-full max-w-[95vw] md:max-w-max flex justify-center z-10">
+      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-full max-w-[97.5vw] md:max-w-max flex justify-center z-10">
         
         {/* Track / Container principal */}
         <div 
           ref={trackRef}
-          className="relative flex items-center gap-3 p-2 rounded-[20px] bg-black/15 backdrop-blur-xl border border-white/5 overflow-x-auto no-scrollbar snap-x snap-mandatory"
+          className="relative flex items-center gap-3 p-2 rounded-[12px] bg-black/15 backdrop-blur-xl border border-white/5 overflow-x-auto no-scrollbar snap-x snap-mandatory"
         >
           {mediaItems.map((item, index) => {
             const isActive = item.id === activeId;
@@ -118,7 +120,7 @@ export default function Carousel() {
                 key={item.id}
                 ref={(el) => { buttonRefs.current[index] = el; }}
                 onClick={() => setActiveId(item.id)}
-                className={`relative shrink-0 w-[60px] h-[60px] snap-center outline-none cursor-pointer transition-opacity duration-300 ease-in-out ${
+                className={`relative shrink-0 size-[60px] snap-center outline-none cursor-pointer transition-opacity duration-300 ease-in-out ${
                   isActive ? 'opacity-100 z-10' : 'opacity-60 hover:opacity-100'
                 }`}
               >
@@ -126,14 +128,14 @@ export default function Carousel() {
                 <img 
                   src={item.src} 
                   alt={item.alt} 
-                  className="w-full h-full object-cover rounded-[10px] pointer-events-none" 
+                  className="w-full h-full object-cover rounded-[8px] pointer-events-none" 
                 />
 
                 {/* Indicateur blanc fluide (Magie de Framer Motion avec layoutId) */}
                 {isActive && (
                   <motion.div
                     layoutId="sliding-indicator"
-                    className="absolute -inset-1 border-[2px] border-white rounded-[14px] pointer-events-none z-20"
+                    className="absolute -inset-1 border border-white rounded-[12px] pointer-events-none z-20"
                     transition={{
                       type: "spring",
                       stiffness: 300,
