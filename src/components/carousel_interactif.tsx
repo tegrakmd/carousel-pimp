@@ -99,9 +99,9 @@ export default function Carousel() {
             style={{ willChange: "transform, opacity" }} // Évite les sauts de rendu (glitch)
           />
         </AnimatePresence>
-        <div className="absolute z-20 bottom-[10%] md:bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference">
+        {/* <div className="absolute z-20 bottom-[10%] md:bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference">
           <h1 className="font-normal text-center text-xl md:text-4xl uppercase font-pixel-circle tracking-[-0.07em] ">tegra studio  kmd</h1>
-        </div>
+        </div> */}
       </div>
 
       {/* Conteneur global du carrousel de navigation */}

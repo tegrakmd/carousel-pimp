@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+
 import {
   GeistPixelSquare,
   GeistPixelGrid,
@@ -12,17 +12,7 @@ import { constructMetaData } from "@/lib/Metadata";
 
 export const metadata = constructMetaData();
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 
 
@@ -34,7 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang="en" suppressHydrationWarning
-      className={cn("h-full", "antialiased", GeistPixelCircle.variable,geistSans.variable, geistMono.variable,GeistPixelSquare.variable, GeistPixelGrid.variable, GeistPixelCircle.variable, GeistPixelTriangle.variable, GeistPixelLine.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", GeistPixelCircle.variable,GeistPixelSquare.variable, GeistPixelGrid.variable, GeistPixelCircle.variable, GeistPixelTriangle.variable, GeistPixelLine.variable, "font-sans", )}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
