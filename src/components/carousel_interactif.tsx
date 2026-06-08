@@ -128,6 +128,7 @@ export default function Carousel() {
                 <img 
                   src={item.src} 
                   alt={item.alt} 
+                    sizes="(max-width: 768px) 100vw, 60px"
                   className="size-full object-cover rounded-[8px] pointer-events-none" 
                 />
                 {/* Indicateur blanc fluide (Magie de Framer Motion avec layoutId) */}
