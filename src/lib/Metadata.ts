@@ -29,7 +29,7 @@ export function constructMetaData({
       card: "summary_large_image",
       title,
       description,
-      images: [image],
+      images: [{ url: image }],
       creator: "@tegrakmd",
     },
     icons,
