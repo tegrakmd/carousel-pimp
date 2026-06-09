@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 // 1. Définition des types TypeScript
@@ -20,7 +20,7 @@ const mediaItems: MediaItem[] = [
   { id: 6, src: "https://i.pinimg.com/1200x/48/d5/68/48d56897cca222fe37b411e17b82f625.jpg", alt: "Voiture de sport classique" },
   { id: 7, src: "https://i.pinimg.com/1200x/fa/bf/26/fabf26d94646ced131ce0d39f3824bc1.jpg", alt: "Détails mécaniques et techniques" },
   { id: 8, src: "https://i.pinimg.com/1200x/fb/47/b5/fb47b5e13d945e43e8d026d9a7480501.jpg", alt: "Coureur de trail en montagne" },
-  { id: 9, src: "https://i.pinimg.com/1200x/89/9d/f8/899df869a89a8b7ce03a8cd592ff1a90.jpg", alt: "Coureur de trail en montagne" }
+  { id: 9, src: "https://i.pinimg.com/1200x/89/9d/f8/899df869a89a8b7ce03a8cd592ff1a90.jpg", alt: "beast and peace" }
 ];
 
 export default function Carousel() {
@@ -44,7 +44,7 @@ export default function Carousel() {
         const nextIndex = (currentIndex + 1) % mediaItems.length;
         return mediaItems[nextIndex].id;
       });
-    }, 4000);
+    }, 3000);
 
     // Nettoyage de l'intervalle si le composant est démonté
     return () => clearInterval(interval);
@@ -85,7 +85,7 @@ export default function Carousel() {
       `}} />
 
       {/* Arrière-plan géré par AnimatePresence pour les fondus croisés */}
-      <div className="absolute inset-0 w-full h-full bg-neutral-950">
+      <div className="absolute inset-0  bg-neutral-950">
         <AnimatePresence initial={false}>
           <motion.img
             key={activeItem.id}
@@ -95,17 +95,17 @@ export default function Carousel() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 size-full  object-cover pointer-events-none"
             style={{ willChange: "transform, opacity" }} // Évite les sauts de rendu (glitch)
           />
         </AnimatePresence>
-        <div className="absolute z-20 bottom-[10%] md:bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference">
-          <h1 className="font-normal text-center text-xl md:text-4xl uppercase font-pixel-circle -tracking-[0.06em] ">tegra studio  kmd</h1>
-        </div>
+        {/* <div className="absolute z-20 bottom-[10%] md:bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference">
+          <h1 className="font-normal text-center text-xl md:text-4xl uppercase font-pixel-circle tracking-[-0.07em] ">tegra studio  kmd</h1>
+        </div> */}
       </div>
 
       {/* Conteneur global du carrousel de navigation */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-full max-w-[95vw] md:max-w-max flex justify-center z-10">
+      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-full max-w-[96vw] md:max-w-max flex justify-center z-10">
         
         {/* Track / Container principal */}
         <div 
@@ -128,9 +128,9 @@ export default function Carousel() {
                 <img 
                   src={item.src} 
                   alt={item.alt} 
-                  className="w-full h-full object-cover rounded-[8px] pointer-events-none" 
+                    sizes="(max-width: 768px) 100vw, 60px"
+                  className="h-full w-full object-cover rounded-[8px] pointer-events-none" 
                 />
-
                 {/* Indicateur blanc fluide (Magie de Framer Motion avec layoutId) */}
                 {isActive && (
                   <motion.div
